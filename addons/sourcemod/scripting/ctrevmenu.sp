@@ -10,7 +10,7 @@ public Plugin myinfo =
 	name = "CT Revmenü", 
 	author = "ByDexter", 
 	description = "", 
-	version = "1.2", 
+	version = "1.2bFix", 
 	url = "https://steamcommunity.com/id/ByDexterTR - ByDexter#5494"
 };
 
@@ -258,7 +258,7 @@ bool CheckAdminFlag(int client, const char[] flags)
 	iCount = ExplodeString(sflagFormat, ",", sflagNeed, sizeof(sflagNeed), sizeof(sflagNeed[]));
 	for (int i = 0; i < iCount; i++)
 	{
-		if ((GetUserFlagBits(client) & ReadFlagString(sflagNeed[i])) || (GetUserFlagBits(client) & ADMFLAG_ROOT))
+		if ((GetUserFlagBits(client) & ReadFlagString(sflagNeed[i])) || (GetUserFlagBits(client) & ADMFLAG_ROOT) || client == 0)
 		{
 			bEntitled = true;
 			break;
